@@ -4,7 +4,6 @@ import com.parking.model.Booking;
 import com.parking.model.ParkingSlot;
 import com.parking.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -55,9 +54,8 @@ public class BookingService {
         slotService.updateSlotAvailability(booking.getSlotId(), true);
     }
     
-    // Auto-complete expired bookings every minute
-    @Scheduled(fixedRate = 60000)
-    public void autoCompleteBookings() {
+    // Manual method to complete expired bookings (call from frontend if needed)
+    public void completeExpiredBookings() {
         LocalDateTime now = LocalDateTime.now();
         List<Booking> expiredBookings = bookingRepository.findByEndTimeBefore(now);
         
