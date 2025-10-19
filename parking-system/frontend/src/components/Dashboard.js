@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './Dashboard.css';
 import SlotGrid from './SlotGrid';
 import BookingModal from './BookingModal';
@@ -15,6 +15,26 @@ function Dashboard({ user }) {
   const [selectedDivision, setSelectedDivision] = useState('ALL');
   const [myBookings, setMyBookings] = useState([]);
 
+  const fetchSlots = useCallback(async () => {
+    try {
+      const response = await fetch('http://localhost:8080/api/slots');
+      const data = await response.json();
+      setSlots(data);
+    } catch (error) {
+      console.error('Error fetching slots:', error);
+    }
+  }, []);
+
+  const fetchMyBookings = useCallback(async () => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/bookings/user/${user.id}`);
+      const data = await response.json();
+      setMyBookings(data);
+    } catch (error) {
+      console.error('Error fetching bookings:', error);
+    }
+  }, [user.id]);
+
   useEffect(() => {
     fetchSlots();
     fetchMyBookings();
@@ -26,27 +46,7 @@ function Dashboard({ user }) {
     }, 30000);
     
     return () => clearInterval(interval);
-  }, []);
-
-  const fetchSlots = async () => {
-    try {
-      const response = await fetch('http://localhost:8080/api/slots');
-      const data = await response.json();
-      setSlots(data);
-    } catch (error) {
-      console.error('Error fetching slots:', error);
-    }
-  };
-
-  const fetchMyBookings = async () => {
-    try {
-      const response = await fetch(`http://localhost:8080/api/bookings/user/${user.id}`);
-      const data = await response.json();
-      setMyBookings(data);
-    } catch (error) {
-      console.error('Error fetching bookings:', error);
-    }
-  };
+  }, [fetchSlots, fetchMyBookings]);
 
   const handleSlotClick = (slot) => {
     if (slot.available) {
