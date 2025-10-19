@@ -1,0 +1,102 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 20px;
+}
+
+.login-box {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.dark-mode .login-box {
+  background: #2d2d2d;
+  color: white;
+}
+
+.login-box h2 {
+  margin-bottom: 30px;
+  text-align: center;
+  color: #4a90e2;
+}
+
+.dark-mode .login-box h2 {
+  color: #64b5f6;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.dark-mode .login-box input {
+  background: #3d3d3d;
+  border-color: #555;
+  color: white;
+}
+
+.login-box input:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+}
+
+.toggle-form {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+}
+
+.dark-mode .toggle-form {
+  color: #aaa;
+}
+
+.toggle-form span {
+  color: #4a90e2;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.toggle-form span:hover {
+  text-decoration: underline;
+}
+
+.error-message {
+  background: #ffebee;
+  color: #c62828;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.dark-mode .error-message {
+  background: #5d1f1f;
+  color: #ff8a80;
+}

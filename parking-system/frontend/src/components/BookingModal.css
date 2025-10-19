@@ -1,0 +1,159 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.3s;
+}
+
+.dark-mode .modal-content {
+  background: #2d2d2d;
+  color: white;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #666;
+  line-height: 1;
+}
+
+.dark-mode .modal-close {
+  color: #aaa;
+}
+
+.modal-close:hover {
+  color: #333;
+}
+
+.dark-mode .modal-close:hover {
+  color: #fff;
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.dark-mode .modal-content h2 {
+  color: #fff;
+}
+
+.slot-info {
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.dark-mode .slot-info {
+  background: #3d3d3d;
+}
+
+.slot-info p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.dark-mode .slot-info p {
+  color: #aaa;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.dark-mode .form-group label {
+  color: #fff;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.dark-mode .form-group input {
+  background: #3d3d3d;
+  border-color: #555;
+  color: white;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.estimated-cost {
+  background: #e3f2fd;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.dark-mode .estimated-cost {
+  background: #1a2d3d;
+}
+
+.estimated-cost p {
+  margin: 0;
+  font-size: 16px;
+  color: #1976d2;
+}
+
+.dark-mode .estimated-cost p {
+  color: #64b5f6;
+}
+
+.estimated-cost strong {
+  font-size: 24px;
+  color: #0d47a1;
+}
+
+.dark-mode .estimated-cost strong {
+  color: #90caf9;
+}
